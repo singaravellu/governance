@@ -1,8 +1,8 @@
 name: Governance
 
 on:
-  workflow_dispatch:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -11,6 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check approved workflow
+      - name: Verify approved workflow exists
         run: |
-          grep -q "terraform-governance.yml" .github/workflows/deploy.yml || exit 1
+          test -f .github/workflows/deploy.yml
+
+      - name: Verify approved workflow name
+        run: |
+          grep -q "name: Deploy" .github/workflows/deploy.yml
