@@ -1,0 +1,9 @@
+name: Deploy
+
+on:
+  pull_request
+
+jobs:
+
+  governance:
+    uses: singaravellu/platform-workflows/.github/workflows/terraform-governance.yml@main
