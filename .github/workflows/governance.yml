@@ -1,4 +1,4 @@
-name: Governance
+name: Governance Validation
 
 on:
   pull_request:
@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verify approved workflow exists
+      - name: Verify approved template usage
         run: |
-          test -f .github/workflows/deploy.yml
+          grep -q "platform-workflows" .github/workflows/deploy.yml
 
-      - name: Verify approved workflow name
+      - name: Verify approved workflow
         run: |
-          grep -q "name: Deploy" .github/workflows/deploy.yml
+          grep -q "terraform-governance.yml" .github/workflows/deploy.yml
