@@ -18,3 +18,8 @@ jobs:
       - name: Verify approved workflow
         run: |
           grep -q "terraform-governance.yml" .github/workflows/deploy.yml
+
+
+      - name: Verify secret scan template
+        run: |
+          grep -q "secret-scan.yml" .github/workflows/deploy.yml          

@@ -7,3 +7,7 @@ jobs:
 
   governance:
     uses: singaravellu/platform-workflows/.github/workflows/terraform-governance.yml@main
+
+  secrets:
+    uses: singaravellu/platform-workflows/.github/workflows/secret-scan.yml@main
+    secrets: inherit
